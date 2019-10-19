@@ -1,0 +1,30 @@
+﻿@model Model.Blog
+@{
+    ViewData["Title"] = "Nueva publicación";
+    var categories = ((List<Model.Category>) ViewBag.categories).Select(x => new SelectListItem { 
+        Text = x.Name,
+        Value = x.CategoryId.ToString()
+    });
+}
+
+<h1>Nueva publicación</h1>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label>Categoría</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="categories"></select>
+    </div>
+    <div class="form-group">
+        <label>Título</label>
+        <input asp-for="Title" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Descripción</label>
+        <input asp-for="Description" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Contenido</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

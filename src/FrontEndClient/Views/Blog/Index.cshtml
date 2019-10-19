@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Model.Blog>
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>Blog</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Descripción</th>
+            <th>Categoría</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) 
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>
+                    @item.Category.Name
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

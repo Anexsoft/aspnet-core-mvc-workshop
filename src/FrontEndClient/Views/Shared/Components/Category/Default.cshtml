@@ -1,0 +1,11 @@
+﻿@model List<Model.Category>
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">Publicaciones por categorías</h3>
+        @foreach (var item in Model)
+        {
+            <a href="~/category/@item.CategoryId" class="btn btn-primary">@item.Name <span class="badge">@item.Posts</span></a>
+        }
+    </div>
+</div>
